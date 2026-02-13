@@ -1,7 +1,6 @@
 package mate.academy.service;
 
 import mate.academy.dao.MovieDao;
-import mate.academy.lib.DataProcessingException;
 import mate.academy.lib.Inject;
 import mate.academy.lib.Service;
 import mate.academy.model.Movie;
@@ -17,6 +16,6 @@ public class MovieServiceImpl implements MovieService {
 
     public Movie get(Long id) {
         return movieDao.get(id).orElseThrow(
-                () -> new DataProcessingException("Movie with id: " + id + " is not found."));
+                () -> new RuntimeException("Movie with id: " + id + " is not found."));
     }
 }
